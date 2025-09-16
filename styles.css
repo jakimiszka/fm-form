@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --white: hsl(0, 100%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --grey-900: hsl(187, 24%, 22%);
+    --grey-500: hsl(186, 15%, 59%);
+    --green-600: hsl(169, 82%, 27%);
+    --green-200: hsl(148, 38%, 91%);
+    --red-600: hsl(0, 66%, 54%);
+
+    --spacing-0: 0;
+    --spacing-100: 0.5rem;
+    --spacing-150: 0.75rem;
+    --spacing-200: 1rem;
+    --spacing-300: 1.5rem;
+    --spacing-400: 2rem;
+    --spacing-500: 2.5rem;
+    --spacing-1600: 8rem; 
+     
+    --font-size-1: 32px;
+    --font-size-2: 18px;
+    --font-size-3: 16px;
+
+    --line-height-1: 100%;
+    --line-height-2: 150%;
+
+    --letter-spacing-1: -1px;
+    --letter-spacing-2: 0px;
+
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 700;
+}
+
+body{
+    font-family: 'Karla', sans-serif;
+    background: var(--green-200);
+    color: var(--grey-900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
