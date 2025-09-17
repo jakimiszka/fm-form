@@ -9,34 +9,48 @@
   <title>Frontend Mentor | Contact form</title>
 </head>
 <body>
+  <main class="container">
+    <h1 class="title">Contact Us</h1>
+    <form class="contact_form">
 
-  Contact Us
+      <!-- name, for, id -->
+      <!-- shared class inputs, labels -->
+       
+      <label>First Name</label>
+      <input type="text" required>
 
-  First Name
-  This field is required
+      <label>Last Name</label>
+      <input type="text" required>
 
-  Last Name
-  This field is required
+      <label>Email Address</label>
+      <input type="email" required>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+      <label>Query Type</label>
+      <fieldset class="query_type">
+        
+        <label class='general' for="general">
+          <input type="radio" name="query" id="general" required>
+          General Enquiry
+        </label>
+        <label class="support" for="support">
+          <input type="radio" name="query" id="support" required>
+          Support Request
+        </label>
+      </fieldset>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+      <label>Message</label>
+      <textarea required></textarea>
 
-  Message
-  This field is required
+      <label class="consent" name="consent" for="consent">
+        <input type="checkbox" id="consent" required>
+        I consent to being contacted by the tea
+      </label>
+      
+      
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+      <button type="submit">Submit</button>
+    </form>
+  </main>
   
   <script defer src="script.js"></script>
 </body>
