@@ -133,9 +133,13 @@ input[type="email"]
 
 textarea{
     border: 1px solid var(--grey-500);
-    width: auto;
-    height: 200px;
     border-radius: 20px;
+    resize: none;
+    width: 100%;
+    height: 220px;
+    padding: var(--spacing-300);
+    color: var(--grey-900);
+    font-weight: var(--regular)
 }
 
 @media screen and (min-width: 736px) {
@@ -146,4 +150,7 @@ textarea{
         flex-direction: row;
     }
     
+    textarea{
+        height: 120px;
+    }
 }
