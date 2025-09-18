@@ -56,6 +56,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
     padding: var(--spacing-300);
+    margin-top: var(--spacing-500);
     background-color: var(--white);
     border-radius: 20px;
 }
@@ -68,24 +69,30 @@ body{
 }
 
 .contact_form{
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-200);
+    flex-grow: 1;
+}
+.full_name{
+    display: flex;
+    flex-direction: column;
+}
+.full_name > div{
+    display: flex;
+    flex-direction: column;
 }
 .consent{
     display: flex;
-    gap: .5rem;
     align-items: baseline;
-    margin-top: var(--spacing-300);
-    margin-bottom: var(--spacing-300);
+    margin-top: var(--spacing-200);
+    margin-bottom: var(--spacing-200);
 }
 
 .query_type{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-100);
+    gap: var(--spacing-200);
     border: none;
 }
 
@@ -118,6 +125,9 @@ label{
     color: var(--grey-900);
     font-size: var(--font-size-3);
     font-weight: var(--regular);
+    line-height: var(--line-height-2);
+    padding-top: var(--spacing-100);
+    padding-bottom: var(--spacing-100);
 }
 
 input[type="text"],
@@ -142,6 +152,33 @@ textarea{
     font-weight: var(--regular)
 }
 
+.toast{
+    position: fixed;
+    top: 1%;
+    margin-inline: auto;
+    width: 327px;
+    height: 131px;
+    background-color: var(--grey-900);
+    color: var(--white);
+    font-size: var(--font-size-3);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-200);
+    padding: var(--spacing-300);
+    z-index: 1;
+}
+
+.error{
+    display: block;
+    color: var(--red-600);
+    font-size: 12px;
+    font-weight: var(--regular);
+    padding: var(--spacing-100);
+}
+
 @media screen and (min-width: 736px) {
     .container{
         width: 736px;
@@ -149,8 +186,23 @@ textarea{
     .query_type{
         flex-direction: row;
     }
+    .full_name{
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-200);
+    }
+    .full_name > div{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
     
     textarea{
-        height: 120px;
+        height: 105px;
     }
+
+    .toast{
+        width: 450px;
+        height: 100px;
+    }   
 }

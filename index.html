@@ -15,19 +15,26 @@
 
       <!-- name, for, id -->
       <!-- shared class inputs, labels -->
-       
-      <label>First Name</label>
-      <input type="text" required>
-
-      <label>Last Name</label>
-      <input type="text" required>
+      <article class="full_name">
+        <div>
+          <label>First Name</label>
+          <input type="text" required>
+          <p class="error">This field is required</p>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" required>
+          <p class="error">This field is required</p>
+        </div>
+      </article>
+      
 
       <label>Email Address</label>
       <input type="email" required>
+      <p class="error">Please enter a valid email address.</p>
 
       <label>Query Type</label>
       <fieldset class="query_type">
-        
         <label class='general' for="general">
           <input type="radio" name="query" id="general" required>
           General Enquiry
@@ -37,20 +44,26 @@
           Support Request
         </label>
       </fieldset>
-
+      <p class="error">Please select a query type.</p>
       <label>Message</label>
       <textarea required></textarea>
-
+      <p class="error">This field is required</p>
       <label class="consent" name="consent" for="consent">
-        <input type="checkbox" id="consent" required>
-        I consent to being contacted by the tea
+        <div>
+          <input type="checkbox" id="consent" required>
+        I consent to being contacted by the team
+        <p class="error">To submit this form, please consent to being contacted.</p>
+        </div>
       </label>
       
-      
-
       <button type="submit">Submit</button>
     </form>
   </main>
+
+  <div class="toast">
+    <h4>Message sent!</h4>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
   
   <script defer src="script.js"></script>
 </body>
