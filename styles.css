@@ -172,11 +172,12 @@ textarea{
 }
 
 .error{
-    display: block;
+    display: none;
     color: var(--red-600);
     font-size: 12px;
     font-weight: var(--regular);
-    padding: var(--spacing-100);
+    padding-top: var(--spacing-100);
+    padding-bottom: var(--spacing-100);
 }
 
 @media screen and (min-width: 736px) {

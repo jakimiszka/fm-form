@@ -17,20 +17,20 @@
       <!-- shared class inputs, labels -->
       <article class="full_name">
         <div>
-          <label>First Name</label>
-          <input type="text" required>
+          <label for="first_name">First Name</label>
+          <input name="first_name" type="text" required>
           <p class="error">This field is required</p>
         </div>
         <div>
-          <label>Last Name</label>
-          <input type="text" required>
+          <label for="last_name">Last Name</label>
+          <input name="last_name" type="text" required>
           <p class="error">This field is required</p>
         </div>
       </article>
       
 
-      <label>Email Address</label>
-      <input type="email" required>
+      <label for="email">Email Address</label>
+      <input name="email" type="email" required>
       <p class="error">Please enter a valid email address.</p>
 
       <label>Query Type</label>
@@ -45,12 +45,12 @@
         </label>
       </fieldset>
       <p class="error">Please select a query type.</p>
-      <label>Message</label>
-      <textarea required></textarea>
+      <label for="message">Message</label>
+      <textarea name="message" required></textarea>
       <p class="error">This field is required</p>
       <label class="consent" name="consent" for="consent">
         <div>
-          <input type="checkbox" id="consent" required>
+          <input name="consent" type="checkbox" id="consent" required>
         I consent to being contacted by the team
         <p class="error">To submit this form, please consent to being contacted.</p>
         </div>
