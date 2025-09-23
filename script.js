@@ -1,3 +1,5 @@
+import InputValidator from './inputValidator.js';
+
 // contrlos
 const first_name = document.querySelector('input[name="first_name"]');
 const last_name = document.querySelector('input[name="last_name"]');
@@ -15,6 +17,8 @@ const email_error = document.querySelector('.error.email');
 const query_error = document.querySelector('.error.query');
 const message_error = document.querySelector('.error.message');
 const consent_error = document.querySelector('.error.consent');
+
+const inputValidator = new InputValidator();
 
 const regex = /[^a-zA-Z]/g;
 const regex_message = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/g;
