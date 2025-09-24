@@ -15,28 +15,28 @@
       <article class="full_name">
         <div>
           <label for="first_name">First Name</label>
-          <input type="text" name="first_name" onkeypress="return validateInput(event)" required>
+          <input type="text" name="first_name" pattern = "[A-Za-z]">
           <p class="error first_name">This field is required</p>
         </div>
         <div>
           <label for="last_name">Last Name</label>
-          <input name="last_name" type="text" onkeypress="return validateInput(event)" required>
+          <input name="last_name" type="text">
           <p class="error last_name">This field is required</p>
         </div>
       </article>
     
       <label for="email">Email Address</label>
-      <input name="email" type="email" required>
+      <input name="email" type="email">
       <p class="error email">Please enter a valid email address.</p>
 
       <label>Query Type</label>
       <fieldset class="query_type">
         <label class='general' for="general">
-          <input type="radio" name="query" id="general" required>
+          <input type="radio" name="query" id="general">
           General Enquiry
         </label>
         <label class="support" for="support">
-          <input type="radio" name="query" id="support" required>
+          <input type="radio" name="query" id="support">
           Support Request
         </label>
       </fieldset>
@@ -46,7 +46,7 @@
       <p class="error message">This field is required</p>
       <label class="consent" name="consent" for="consent">
         <div>
-          <input name="consent" type="checkbox" id="consent" required>
+          <input name="consent" type="checkbox" id="consent">
         I consent to being contacted by the team
         <p class="error consent">To submit this form, please consent to being contacted.</p>
         </div>
@@ -61,6 +61,6 @@
     <p>Thanks for completing the form. We'll be in touch soon!</p>
   </div>
   
-  <script defer src="script.js"></script>
+  <script defer type="module" src="script.js"></script>
 </body>
 </html>

@@ -82,7 +82,7 @@ class InputValidator {
     let pattern = 'a-zA-Z';
     if (allowNumbers) pattern += '0-9';
     if (allowSpaces) pattern += '\\s';
-    if (allowBasicPunctuation) pattern += '.,-!?\'';
+    if (allowBasicPunctuation) pattern += '.,-/()[]{}:;!@#$%^&*\\+\'';
 
     const regex = new RegExp(`^[${pattern}]+$`);
 
@@ -320,7 +320,7 @@ const validator = new InputValidator();
 
 // Example 1: Text input validation
 console.log('=== Text Input Validation ===');
-const textResult = validator.validateTextInput('John Doe', {
+const textResult = validator.validateTextInput('JohnDoe', {
   minLength: 2,
   maxLength: 50,
   allowSpaces: true
@@ -369,4 +369,4 @@ const batchResult = validator.validateBatch(
 console.log('Batch validation:', batchResult);
 
 // Export for use in other modules
-module.exports = InputValidator;
+export default InputValidator;

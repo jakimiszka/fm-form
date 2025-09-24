@@ -1,4 +1,4 @@
-import InputValidator from './inputValidator.js';
+// import InputValidator from './inputValidator.js';
 
 // contrlos
 const first_name = document.querySelector('input[name="first_name"]');
@@ -18,11 +18,12 @@ const query_error = document.querySelector('.error.query');
 const message_error = document.querySelector('.error.message');
 const consent_error = document.querySelector('.error.consent');
 
-const inputValidator = new InputValidator();
+//const inputValidator = new InputValidator();
 
-const regex = /[^a-zA-Z]/g;
+const regex = /[^a-zA-Z_ ]/g;
 const regex_message = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/g;
-const regex_email = /\S+@\S+\.\S+/;
+const regex_email = /\S+@\S+\.\w{2}[\._-]?\w*$/;
+
 let results = [];
 
 const validate = {
@@ -140,8 +141,36 @@ function submitForm(results) {
     results.length = 0;
 }
 
-function validateInput(event) {
-      var key = event.which || event.keyCode || 0;
-      return ((key >= 65 && key <= 92) || 
-              (key >= 97 && key <= 124) || key==32)
-    }
+first_name.addEventListener('input', (event) => {
+    const input = event.target.value;
+    console.log(input)
+    event.target.value = input.replace(regex, '');
+});
+
+last_name.addEventListener('input', (event) => {
+    const input = event.target.value;
+    console.log(input)
+    event.target.value = input.replace(regex, '');
+});
+
+const pattern = /^[a-zA-Z0-9]+$/;
+const special_chars = /[-!#$%^&*()+@_=\[\]{}.;':"\\|,<>\/?]+/g;
+
+/*  valid email examples
+
+    a@b.c
+    a@b.c.
+    a@b.c.d
+    j.o.h.n.d.o.e@gmail.com
+    very.(),:;<>[]\".VERY.\"very@\ \"very\".unusual"@strange.example.com
+    xample-indeed@strange-example.com
+    admin@mailserver1 (local domain name with no top-level domain)
+    #!$%&'*+-/=?^_`{}|~@example.org
+    "()<>[]:,;@\\"!#$%&'-/=?^_`{}| ~.a"@example.org
+
+    AT THIS POINT IM COOKED, ll just stick to the format
+*/
+
+email.addEventListener('input', (event) => {
+    // TODO
+});
