@@ -1,8 +1,7 @@
-// import InputValidator from './inputValidator.js';
-
 // contrlos
 const first_name = document.querySelector('input[name="first_name"]');
 const last_name = document.querySelector('input[name="last_name"]');
+const full_name = document.querySelectorAll('input[type="text"]');
 const email = document.querySelector('input[name="email"]');
 const query_types = document.querySelectorAll('input[name="query"]');
 const message = document.querySelector('textarea[name="message"]');
@@ -26,47 +25,11 @@ const regex_email = /\S+@\S+\.\w{2}[\._-]?\w*$/;
 
 let results = [];
 
-const validate = {
-    checkString: (string) => {
-        if (!string || regex.test(string)) {
-            return false;
-        } else {
-            return true;
-        }
-    },
-
-    checkMessage: (string) => {
-        if (!string || regex_message.test(string)) {
-            return false;
-        } else {
-            return true;
-        }
-    },
-
-    checkEmail: (email) =>{
-        const result = regex_email.test(email);
-        return !!result ? true : false;
-    }
-}
-
 message.addEventListener('input', (event) => {
   const input = event.target.value;
   const sanitizedInput = sanitize(input);
   event.target.value = sanitizedInput;
 });
-
-function sanitize(string) {
-  const map = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#x27;',
-      "/": '&#x2F;',
-  };
-  const reg = /[&<>"'/]/ig;
-  return string.replace(reg, (match)=>(map[match]));
-}
 
 
 submit.addEventListener('click', (e) => {
@@ -105,25 +68,25 @@ function validateString(element, error_msg) {
 }
 
 function validateMessage(element, error_msg) {
-    if(validate.checkMessage(element.value)){ 
-        error_msg.style.display = 'none';
-        return true;
-    } else{
-        error_msg.style.display = 'block';
-        return false;
-    }
+   
 }
 
 function validateEmail(element, error_msg) {
-    if(validate.checkEmail(element.value)){
-         error_msg.style.display = 'none';
-         return true;
-    }else{
-        error_msg.style.display = 'block';
-        return false;
-    } 
+   
 }
 
+function sanitize(string) {
+  const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      "/": '&#x2F;',
+  };
+  const reg = /[&<>"'/]/ig;
+  return string.replace(reg, (match)=>(map[match]));
+}
 
 function submitForm(results) {
     if(results.indexOf(false) === -1){
@@ -146,25 +109,14 @@ function submitForm(results) {
     results.length = 0;
 }
 
-first_name.addEventListener('input', (event) => {
-    const input = event.target.value;
-    console.log(input)
-    event.target.value = input.replace(regex, '');
-    validateString(first_name, first_name_error);
-});
-
-last_name.addEventListener('input', (event) => {
-    const input = event.target.value;
-    console.log(input)
-    event.target.value = input.replace(regex, '');
-    if (input.length < 2 || input.length > 50) {
-        console.log('Name must be at least 2 characters long and less than 50 characters.');
-        last_name_error.innerHTML = 'Name must be longer than 2 or less than 50';
-        last_name_error.style.display = 'block';
-    }else{
-        last_name_error.style.display = 'none';
-    }
-});
+full_name.forEach((name) => {
+    name.addEventListener('input', (event) => {
+        const input = event.target.value;
+        event.target.value = input.replace(regex, '');
+        const error_msg = event.target.nextElementSibling;
+        validateString(name, error_msg);
+    })
+})
 
 const pattern = /^[a-zA-Z0-9]+$/;
 const special_chars = /[-!#$%^&*()+@_=\[\]{};':"\\|,<>\/?]+/g;
