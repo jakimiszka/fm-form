@@ -20,7 +20,7 @@ const consent_error = document.querySelector('.error.consent');
 
 //const inputValidator = new InputValidator();
 
-const regex = /[^a-zA-Z_ ]/g;
+const regex = /[^AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻżqQxXvV]/g;
 const regex_message = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/g;
 const regex_email = /\S+@\S+\.\w{2}[\._-]?\w*$/;
 
@@ -90,12 +90,17 @@ submit.addEventListener('click', (e) => {
 });
 
 function validateString(element, error_msg) {
-    if(validate.checkString(element.value)){ 
-        error_msg.style.display = 'none';
-        return true;
-    } else{
+    if(!element.value){
+        error_msg.innerHTML = 'This field is required';
         error_msg.style.display = 'block';
         return false;
+   }else if(element.value.length < 2 || element.value.length > 50){
+        error_msg.innerHTML = 'Name must be longer than 2 or less than 50 chars';
+        error_msg.style.display = 'block';
+        return false;
+    }else{
+        error_msg.style.display = 'none';
+        return true;
     }
 }
 
@@ -145,32 +150,26 @@ first_name.addEventListener('input', (event) => {
     const input = event.target.value;
     console.log(input)
     event.target.value = input.replace(regex, '');
+    validateString(first_name, first_name_error);
 });
 
 last_name.addEventListener('input', (event) => {
     const input = event.target.value;
     console.log(input)
     event.target.value = input.replace(regex, '');
+    if (input.length < 2 || input.length > 50) {
+        console.log('Name must be at least 2 characters long and less than 50 characters.');
+        last_name_error.innerHTML = 'Name must be longer than 2 or less than 50';
+        last_name_error.style.display = 'block';
+    }else{
+        last_name_error.style.display = 'none';
+    }
 });
 
 const pattern = /^[a-zA-Z0-9]+$/;
-const special_chars = /[-!#$%^&*()+@_=\[\]{}.;':"\\|,<>\/?]+/g;
-
-/*  valid email examples
-
-    a@b.c
-    a@b.c.
-    a@b.c.d
-    j.o.h.n.d.o.e@gmail.com
-    very.(),:;<>[]\".VERY.\"very@\ \"very\".unusual"@strange.example.com
-    xample-indeed@strange-example.com
-    admin@mailserver1 (local domain name with no top-level domain)
-    #!$%&'*+-/=?^_`{}|~@example.org
-    "()<>[]:,;@\\"!#$%&'-/=?^_`{}| ~.a"@example.org
-
-    AT THIS POINT IM COOKED, ll just stick to the format
-*/
+const special_chars = /[-!#$%^&*()+@_=\[\]{};':"\\|,<>\/?]+/g;
 
 email.addEventListener('input', (event) => {
-    // TODO
+
 });
+

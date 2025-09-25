@@ -80,6 +80,7 @@ body{
 .full_name > div{
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 .consent{
     display: flex;
@@ -130,6 +131,13 @@ label{
     padding-bottom: var(--spacing-100);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--white) inset !important;
+}
+
 input[type="text"],
 input[type="email"]
 {
@@ -139,6 +147,11 @@ input[type="email"]
     padding-inline: var(--spacing-300);
     color: var(--grey-900);
     font-weight: var(--regular);
+}
+
+.valid{
+    border: 1px solid var(--green-600);
+    box-shadow: 0 0 0 30px var(--green-200) inset;
 }
 
 textarea{
@@ -177,6 +190,7 @@ textarea:focus {
     outline: none;
     box-shadow: none;
     border: none;
+    background-color: var(--white);
     border: 2px solid var(--green-600);
 }
 input[type="text"]:focus:hover,
@@ -185,6 +199,11 @@ textarea:focus:hover {
     outline: none;
     box-shadow: none;
     border: none;
+    background: var(--white);
+    border: 2px solid var(--green-600);
+}
+
+.general-active {
     border: 2px solid var(--green-600);
 }
 
