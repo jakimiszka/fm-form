@@ -102,6 +102,7 @@ label[for="message"]::after,
     flex-direction: row;
     align-items: center;
     gap: var(--spacing-100);
+    padding-top: var(--spacing-100);
 }
 
 .query_type{
@@ -268,7 +269,10 @@ textarea:focus:hover {
     .toast{
         width: 450px;
         height: 100px;
-    }   
+    }
+    .consent_wrapper{
+        padding-top: var(--spacing-100);
+    }
 }
 
 /*  radio button    */
