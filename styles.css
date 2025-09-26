@@ -81,6 +81,16 @@ body{
     display: flex;
     flex-direction: column;
 }
+label[for="first_name"]::after, 
+label[for="last_name"]::after,
+label[for="email"]::after,
+label[for="query"]::after,
+label[for="message"]::after,
+.consent_text::after{
+    content: "*";
+    padding-left: var(--spacing-100);
+    color: var(--green-600);
+}
 .consent{
     display: flex;
     align-items: baseline;
